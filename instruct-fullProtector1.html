@@ -5,7 +5,7 @@
 
 <div id="container-instructions">
 
-    <h1>Protector Game</h1>
+    <h1>Protector Instructions</h1>
 
     <hr/>
 
@@ -13,18 +13,29 @@
 
         <div class="row container-fluid">
             <p>
-                <font size=4> 
-                        Welcome to the Protector Game!
-                    <br><br>
-                    You will continue using the same bank in this game. 
-                    <br><br>
-                    At the start of every turn, <b>300 bombs are added to your bank</b>. In this game, <b><font style="color:green">correct responses</font></b> will <b>remove these added bombs</b> from your bank and <b><font style="color:red">incorrect responses</font></b> will <b>add more bombs</b> to your bank. At the end of your turn, any bombs that remain in your bank will destroy the equivalent number of gems in your bank.
-                    <br><br>
-                    <center>
-                    <img src='{{ server_location }} static/images/instructionImage/BankLoss.png' height="100"   >
-                    </center>
-                    <br><br>
-                    The number of bombs removed for correct responses and number of bombs added for incorrect responses will depend on the round. 
+                <font size=4> Welcome to the Protector Game!
+                <br><br>
+                As a reminder, at the very beginning, you had 1200 gems in your bank, which is equivalent to $12 of bonus payment <b>(1 gem = 1 cent)</b>.
+                <br><br>
+                On each turn, <b>300 bombs will appear in your bank</b>, each of which has the power to destroy one of your gems.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/BankLoss.png' height="100"   >
+                
+                <br><br>
+                Any bombs that remain at the end of that turn will destroy the equivalent number of gems
+                <br><br>
+                Each time you give a <b>correct response</b>, you will <b>remove</b> some number of bombs. The number of bombs removed for each correct response will differ across turns.
+                <br><br>
+                On the <b>LEFT</b> side of the bank, a symbol next to the <font style="color:green">GREEN CHECK MARK </font> will show you <b> how many bombs you can remove</b> to your bank for each <b>correct response</b> (shown in gray). 
+                <br><br>
+                On <b>LOW-VALUE</b> turns, each <font style="color:green">correct response</font><b> removes <span id="lowVal"></span> bomb</b>.
+                <br><br>
+                <img src='{{ server_location }} static/images/instructionImage/Loss1.png' height="100"   >
+                <br><br>
+                On <b>HIGH-Value</b> turns, each <font style="color:green">correct response</font> <b> removes <span id="highVal"></span> bombs</b>.
+                <br><br>
+                <img src='{{ server_location }} static/images/instructionImage/Loss2.png' height="100" >
                 </font>
             </p>
         </div>

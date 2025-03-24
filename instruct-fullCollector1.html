@@ -1,11 +1,12 @@
 <script>
     $("body").unbind("keydown").focus().keydown(continue_handler);
+    if(protector) $("#reminder").html("As a reminder, at the very beginning, you had 1200 gems in your bank, which is equivalent to $12 of bonus payment <b>(1 gem = 1 cent)</b>.<br><br>");
 </script>
 
 
 <div id="container-instructions">
 
-    <h1>Collector Game</h1>
+    <h1>Collector Instructions</h1>
 
     <hr/>
 
@@ -13,19 +14,32 @@
 
         <div class="row container-fluid">
             <p>
-                <font size=4> 
-                    Welcome to the Collector Game!
-                    <br><br>
-                    On every turn in this game, <b><font style="color:green">correct responses</font></b> will <b>add gems</b> to your bank and <b><font style="color:red">incorrect responses</font></b> will <b>add bombs</b> to your bank. At the end of your turn, any bombs added to your bank will destroy the equivalent number of gems in your bank.
-                    <br><br>
-                    The number of gems added for correct responses and number of bombs added for incorrect responses will depend on the round. 
+                <font size=4> Welcome to the Collector Game!
+                <br><br>
+                <span id='reminder'></span>
+                Each time you give a <b>correct response</b>, you will <b>collect</b> some number of gems. The number of gems added for each correct response will differ across turns.
+                <br><br>
+                On the <b>LEFT</b> side of the bank, a symbol next to the <font style="color:green">GREEN CHECK MARK </font>will show you<b> how many gems you can add</b> to your bank for each <b>correct response</b>. 
+                <br><br>
+                On <b>LOW-VALUE</b> turns, each <font style="color:green">correct response</font><b> adds <span id="lowReward"></span> gem</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/Gain1.png' height="100"   >
+                
+                <br><br>
+                On <b>HIGH-Value</b> turns, each <font style="color:green">correct response</font> <b> adds <span id="highReward"></span> gems</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/Gain2.png' height="100" >
+                
                 </font>
             </p>
         </div>
 </div>
-
-<script type="text/javascript">
-    $("body").unbind("keydown").focus().keydown(continue_handler);
+ <script type="text/javascript">
+            $('#lowReward').html(lowGain.toFixed(0));
+            $('#highReward').html(highGain.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
 </script>
 
 <hr />

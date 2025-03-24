@@ -9,16 +9,15 @@
     <div class="row container-fluid">
         
         <p> 
-            In this round, you will always play as a <span id='role'></span> in <span id='fixed'></span> turns.
+            In this round, you will always play as a <span id='role'></span> in <span id='value'></span> and <span id='penalty'></span> turns.
             <br/><br/>
             As a reminder, at the end of this round, the <span id='list'></span> on <span id='nSampled'></span> will be added to your gem bank. 
             <br/><br/>
-            In this round, you will see one of these images before each turn. 
         </p>
 
         <table class='table table-bordered table-striped text-center'>
-          <tr id='cues'>
-            <!--<td style="padding:10px" id='cues'></td>-->
+          <tr>
+            <td style="padding:10px"><img height="200" id='cue'></td>
           </tr>
         </table>
 <!--         <p>    
@@ -40,48 +39,25 @@
         var penaltyCue = mainBlockType[mainBlockType.length-1];
 
         if(roleCue=='Gain') 
-        {
-            var role = 'COLLECTOR';
-            var items = 'gems and bombs';
-
-        }
+        {var role = 'COLLECTOR';
+        var items = 'gems and bombs';}
         else 
-        {
-            var role = 'PROTECTOR';
-            var items = 'bombs';
-          
+        {var role = 'PROTECTOR';
+        var items = 'bombs';
         }
 
+        if(valueCue=='1') var value = 'low-value';
+        else var value = 'high-value';
 
-        if(valueCue == '_')
-        {
-            if(penaltyCue=='1') var fixed = 'low-penalty (1 bomb added)';
-            else var fixed = 'high-penalty (10 bombs added)';
-        }
-        else
-        {
-            if(roleCue == 'Gain')
-            {
-                if(valueCue=='1') var fixed = 'low-value (1 gem added)';
-                else var fixed = 'high-value (10 gems added)'; 
-            }
-            else
-            {
-                if(valueCue=='1') var fixed = 'low-value (1 bomb removed)';
-                else var fixed = 'high-value (10 bombs removed)';                 
-            }          
-        }
-
-        
+        if(penaltyCue=='1') var penalty = 'low-penalty';
+        else var penalty = 'high-penalty';
 
 
         $("#role").html('<b>' + role + '</b>');
-        $("#fixed").html('<b>' + fixed + '</b>');
+        $("#value").html('<b>' + value + '</b>');
         $('#list').html(items);
-        //$("#penalty").html('<b>' + penalty + '</b>');
-        //$("#cue").attr('src',cues[mainBlockType][0][0]);
-        for(var i = 0;i<cues[mainBlockType].length;i++)
-            $("#cues").append("<td style='padding:10px'><img height = 200px id='cue"+i.toFixed(0)+"' src='" + cues[mainBlockType][i][0] + "'/></td>");
+        $("#penalty").html('<b>' + penalty + '</b>');
+        $("#cue").attr('src',cues[mainBlockType][0][0]);
         $("body").unbind("keydown").focus().keydown(continue_handler);
     </script>
 <hr />

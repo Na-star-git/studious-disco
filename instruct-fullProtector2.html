@@ -5,7 +5,7 @@
 
 <div id="container-instructions">
 
-    <h1>Protector Game: Instructions</h1>
+    <h1>Protector Instructions</h1>
 
     <hr/>
 
@@ -13,24 +13,27 @@
 
         <div class="row container-fluid">
             <p>
-                <font size=4> 
-                    Before every turn, you will know how many bombs are added or removed with each response when you see an image like the following.
-                    <br><br>
-                    <center>
-                        EXAMPLE:
-                        <img src='{{ server_location }} static/images/instructionImage/Loss1_Pun1.png' height="100">
-                    </center>
-                    <br><br>
-                    On the <b>LEFT</b> side of the bank, next to the <b><font style="color:green">green checkmark</font></b>, you will see <b>how many bombs you can remove</b> from your bank for <b>each <font style="color:green">correct response</font></b>. In this example, each correct response removes one bomb from your bank.
-                    <br><br>
-                    On the <b>RIGHT</b> side of your bank, next to the <b><font style="color:red">red X</font></b>, you will see <b>how many bombs will be added</b> to your bank for <b>each <font style="color:red">incorrect response</font></b>. In this example, each incorrect response adds one bomb to your bank.
-
-                    <br><br><br><br>
-                    At the end of each turn, you will see the number of bombs removed(in grey) AND the number of bombs added on that turn like this.
-                    <br><br>
-                    <center>
-                        <img src='{{ server_location }} static/images/instructionImage/FeedbackProtector.png' height="100" >
-                    </center>
+                <font size=4> Each time you make a mistake, you will incur a penalty (bombs that can each destroy one of the gems in your bank). 
+                <br><br>
+                On the <b>RIGHT</b> side of the bank, a symbol next to the <font style="color:red">RED X MARK </font>will show you <b> how many bombs will be added </b> to your bank for each <b>incorrect response</b> (shown in gray). 
+                <br><br>
+                On <b>LOW-PENALTY</b> turns, each <font style="color:red">incorrect response</font><b> adds <span id="lowPunish2"></span> bomb</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/LossPen1.png' height="100"   >
+                
+                <br><br>
+                On <b>HIGH-PENALTY</b> turns, each <font style="color:red">incorrect response</font> <b> adds <span id="highPunish2"></span> bombs</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/LossPen2.png' height="100" >
+                
+                <br><br>
+                At the end of each turn, you will see the number of bombs removed(in grey) AND the number of bombs added on that turn.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/FeedbackProtector.png' height="100" >
+                
                 </font>
             </p>
         </div>

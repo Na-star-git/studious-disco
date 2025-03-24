@@ -1,6 +1,6 @@
 <div id="container-instructions">
 
-    <h1>Quiz - COLLECTOR</h1>
+    <h1>Quiz - PROTECTOR</h1>
 
     <hr />
 
@@ -11,33 +11,32 @@
         </p>
 
         <ol type="1">
-            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun1.png' height="100">
-            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Loss1_Pun2.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Loss2_Pun2.png' height="100">
             <li>When you see either of these two images above, how many bombs will appear with one incorrect response?
                 <form>
-                    <input type="radio" class="answer" name="q1answer" id="q1a1">0<br />
-                    <input type="radio" class="answer" name="q1answer" id="q1a2"><span id='lowPenQ1'></span><br />
-                    <input type="radio" class="answer" name="q1answer" id="q1a3"><span id='highPenQ1'></span><br/>
+                    <input type="radio" class="answer" name="q1answer" id="q1a1"> 0<br />
+                    <input type="radio" class="answer" name="q1answer" id="q1a2"> <span id='lowPenQ1'></span><br />
+                    <input type="radio" class="answer" name="q1answer" id="q1a3"> <span id='highPenQ1'></span><br />
                 </form>
             </li>
+
             <hr />
 
-
-            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun2.png' height="100">
-            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun2.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Loss1_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Loss2_Pun1.png' height="100">
             <li>When you see either of these two images above, how many bombs will appear with one incorrect response?
                 <form>
                     <input type="radio" class="answer" name="q2answer" id="q2a1"> 0<br />
-                    <input type="radio" class="answer" name="q2answer" id="q2a2"> <span id='lowPenQ2'></span><br />
-                    <input type="radio" class="answer" name="q2answer" id="q2a3"> <span id='highPenQ2'></span><br />
+                    <input type="radio" class="answer" name="q2answer" id="q2a2"><span id='lowPenQ2'></span><br />
+                    <input type="radio" class="answer" name="q2answer" id="q2a3"><span id='highPenQ2'></span><br/>
                 </form>
             </li>
 
             <hr />
-
-            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun1.png' height="100">
-            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun2.png' height="100">
-            <li>When you see either of these two images above, how many gems will you collect with one correct response?
+            <img src='{{ server_location }} static/images/cues/RLP/Loss2_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Loss2_Pun2.png' height="100">
+            <li>When you see either of these two images above, how many bombs will you remove with one correct response?
                 <form>
                     <input type="radio" class="answer" name="q3answer" id="q3a1"> 0<br />
                     <input type="radio" class="answer" name="q3answer" id="q3a2"> <span id='lowValQ3'></span><br />
@@ -45,22 +44,22 @@
                 </form>
             </li>
 
+
             <hr />
-            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun1.png' height="100">
-            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun2.png' height="100">
-            <li>When you see either of these two images above, how many gems will you collect with one correct response?
+
+            <img src='{{ server_location }} static/images/cues/RLP/Loss1_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Loss1_Pun2.png' height="100">
+            <li>When you see either of these two images above, how many bombs will you remove with one correct response?
                 <form>
                     <input type="radio" class="answer" name="q4answer" id="q4a1"> 0<br />
                     <input type="radio" class="answer" name="q4answer" id="q4a2"> <span id='lowValQ4'></span><br />
                     <input type="radio" class="answer" name="q4answer" id="q4a3"> <span id='highValQ4'></span><br />
                 </form>
             </li>
-
-
         </ol>
         <script type="text/javascript">
-            $('#lowValQ3,#lowValQ4').html(lowGain.toFixed(0));
-            $('#highValQ3,#highValQ4').html(highGain.toFixed(0));
+            $('#lowValQ3,#lowValQ4').html(lowLoss.toFixed(0));
+            $('#highValQ3,#highValQ4').html(highLoss.toFixed(0));
             $('#lowPenQ1,#lowPenQ2').html(lowPun.toFixed(0));
             $('#highPenQ1,#highPenQ2').html(highPun.toFixed(0));
             $("body").unbind("keydown").focus().keydown(continue_handler);
@@ -111,8 +110,8 @@
 
     function check_answers() {
         // check that the right answers where chosen 
-        if (!(document.getElementById('q1a2').checked && document.getElementById('q2a3').checked && document.getElementById('q3a2').checked && document.getElementById('q4a3').checked)) {
-            incorrectC1 = incorrectC1 + 1;
+        if (!(document.getElementById('q1a3').checked && document.getElementById('q2a2').checked && document.getElementById('q3a3').checked  && document.getElementById('q4a2').checked)) {
+            incorrectP1 = incorrectP1 + 1;
             alert('You have made an error, please check your answers.');    
         } else {
             var src = document.getElementById("buttons");

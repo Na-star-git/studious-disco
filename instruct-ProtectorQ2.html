@@ -1,17 +1,16 @@
 <div id="container-instructions">
 
-    <h1>Quiz - COLLECTOR</h1>
+    <h1>Quiz - PROTECTOR</h1>
 
     <hr />
 
     <div class="instructions well">
 
-        <p>Please answer the following questions based on the instructions that you read earlier about playing as COLLECTOR.
+        <p>Please answer the following questions based on the instructions that you read earlier about playing as PROTECTOR. As a reminder, each turn will start with <b>300 bombs</b>.
 
         <ol type="1">
-
-            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun1.png' height="100">
-            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net gems can you get on this turn?
+            <img src='{{ server_location }} static/images/cues/RLP/Loss2_Pun1.png' height="100">
+            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net bombs remain on this turn?
                 <form>
                     <input type="radio" class="answer" name="q1answer" id="q1a1"> <span id='q1a1Text'></span><br />
                     <input type="radio" class="answer" name="q1answer" id="q1a2"> <span id='q1a2Text'></span><br />
@@ -22,8 +21,8 @@
 
             <hr/>
 
-            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun2.png' height="100">
-            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net gems can you get on this turn?
+            <img src='{{ server_location }} static/images/cues/RLP/Loss2_Pun2.png' height="100">
+            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net bombs remain on this turn?
                 <form>
                     <input type="radio" class="answer" name="q1answer" id="q2a1"> <span id='q2a1Text'></span><br />
                     <input type="radio" class="answer" name="q1answer" id="q2a2"> <span id='q2a2Text'></span><br />
@@ -35,8 +34,8 @@
 
             <hr/>
 
-            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun1.png' height="100">
-            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net gems can you get on this turn?
+            <img src='{{ server_location }} static/images/cues/RLP/Loss1_Pun1.png' height="100">
+            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net bombs remain on this turn?
                 <form>
                     <input type="radio" class="answer" name="q1answer" id="q3a1"> <span id='q3a1Text'></span><br />
                     <input type="radio" class="answer" name="q1answer" id="q3a2"> <span id='q3a2Text'></span><br />
@@ -47,8 +46,8 @@
 
             <hr/>
 
-            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun2.png' height="100">
-            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net gems can you get on this turn?
+            <img src='{{ server_location }} static/images/cues/RLP/Loss1_Pun2.png' height="100">
+            <li>Imagine you complete 11 trials after seeing this image, 10 correctly and 1 incorrectly. How many net bombs remain on this turn?
                 <form>
                     <input type="radio" class="answer" name="q1answer" id="q4a1"> <span id='q4a1Text'></span><br />
                     <input type="radio" class="answer" name="q1answer" id="q4a2"> <span id='q4a2Text'></span><br />
@@ -59,10 +58,10 @@
 
         </ol>
         <script type="text/javascript">
-            $('#q1a1Text,#q2a1Text,#q3a1Text,#q4a1Text').html((10*lowGain - lowPun).toFixed(0));
-            $('#q1a2Text,#q2a2Text,#q3a2Text,#q4a2Text').html((10*lowGain - highPun).toFixed(0));
-            $('#q1a3Text,#q2a3Text,#q3a3Text,#q4a3Text').html((10*highGain - lowPun).toFixed(0));
-            $('#q1a4Text,#q2a4Text,#q3a4Text,#q4a4Text').html((10*highGain - highPun).toFixed(0));
+            $('#q1a1Text,#q2a1Text,#q3a1Text,#q4a1Text').html((initialBomb - 10*lowLoss + lowPun).toFixed(0));
+            $('#q1a2Text,#q2a2Text,#q3a2Text,#q4a2Text').html((initialBomb - 10*lowLoss + highPun).toFixed(0));
+            $('#q1a3Text,#q2a3Text,#q3a3Text,#q4a3Text').html((initialBomb - 10*highLoss + lowPun).toFixed(0));
+            $('#q1a4Text,#q2a4Text,#q3a4Text,#q4a4Text').html((initialBomb - 10*highLoss + highPun).toFixed(0));
             $("body").unbind("keydown").focus().keydown(continue_handler);
 
         </script>
@@ -120,8 +119,8 @@
 
     function check_answers() {
         // check that the right answers where chosen 
-        if (!(document.getElementById('q1a1').checked & document.getElementById('q2a2').checked & document.getElementById('q3a3').checked & document.getElementById('q4a4').checked)) {
-            incorrectC2 = incorrectC2 + 1;
+        if (!(document.getElementById('q1a3').checked & document.getElementById('q2a4').checked & document.getElementById('q3a1').checked & document.getElementById('q4a2').checked)) {
+            incorrectP2 = incorrectP2 + 1;
             alert('You have made an error, please check your answers.');    
         } else {
             var src = document.getElementById("buttons");

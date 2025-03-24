@@ -1,28 +1,15 @@
 <div id="container-instructions">
 
-	<h1>Instructions-Basic Operation</h1>
+    <h1>Reminder</h1>
 
-	<hr />
+    <hr />
 
-	<div class="instructions well">
-
-        <p>
-            <font size=4>
-            In the game, the basic operation is to identify the INK COLOR on the screen and press keys corresponding to the INK COLOR you see.
-            <br><br>
-            In the first practice you will see a row of Xs appear on the screen in different ink colors. You should press the key that corresponds to the color of the Xs.
-            <br><br>
-            After each response, you will be told whether you were correct or incorrect.
-            <br><br>
-            Please do your best to make sure you learn which key corresponds to which ink color.
-            <br><br>
-            </font>
-
-            <div class="row">
+    <div class="instructions well">
+        <div class="row">
                 <img style='float: left; padding-left: 20px;' class='' src='{{ server_location }}/static/images/ColorMappingVisual.png' height="300">
 
-                <p style='padding-left: 440px;'>
-                    To respond, please use your... 
+                <p style='padding: 80px; padding-left: 440px;'>
+                    As a reminder: 
 
                     <br />
                     Left middle finger to respond <strong>D</strong> for <strong id="color1"></strong><br />
@@ -40,31 +27,37 @@
                         document.getElementById("color4").innerHTML = responseColors[3];
                     </script><br />
                 </p>
-            </div>
 
+        </div>
+
+        <br />
+
+        <p>
+            Importantly, you should continue to respond only to the <b>ink color</b> of each word. You should <b>not</b> respond based on the content of the word.
+        </p>
+        <p class="text-center">
+            <em>Please take a few moments, and when you are ready press the button to continue the experiment.</em>
         </p>
 
         <script type="text/javascript">
             $("body").unbind("keydown").focus().keydown(continue_handler);
         </script>
+</div>
 
-    </div>
+<hr />
 
-    <hr />
-
-
-    <div class="instructionsnav">
-        <div class="row">
-            <div class="col-xs-2">
-            </div>
-            <div class="col-xs-8">
-                <button type="button" id="next" value="next" class="btn btn-primary btn-lg center-block continue">
-                    Press space to continue <span class="glyphicon glyphicon-arrow-right"></span>
-                </button>
-            </div>
-            <div class="col-xs-2">
-            </div>
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Press space to begin experiment
+            </button>
+        </div>
+        <div class="col-xs-2">
         </div>
     </div>
+</div>
 
 </div>
