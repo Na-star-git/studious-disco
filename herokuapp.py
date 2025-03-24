@@ -1,2 +1,3 @@
-import psiturk.experiment_server as exp
-exp.launch()
+@app.route("/")
+def home():
+    return render_template("index.html")
