@@ -1,5 +1,2 @@
-psycopg2-binary
-cryptography>=latest_version
-pyOpenSSL>=latest_version
 flask
 gunicorn
