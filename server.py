@@ -1,9 +1,10 @@
-app = Flask(__name__)
+from flask import Flask
+
+app = Flask(__name__)  # Maintenant, Flask est reconnu
 
 @app.route("/")
 def home():
-    return render_template("index.html")  # Assure-toi que le fichier existe
+    return "Bienvenue dans l'expérience"
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
